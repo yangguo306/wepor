@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>WEPOR - Predict the Future, Clearly Visible</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Sora:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- AOS Animation Library CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#3c494e",
+                        "on-tertiary-fixed": "#291800",
+                        "on-tertiary": "#442b00",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "error": "#ffb4ab",
+                        "surface-container": "#201f1f",
+                        "on-primary-fixed": "#001f28",
+                        "on-background": "#e5e2e1",
+                        "primary": "#a4e6ff",
+                        "primary-fixed-dim": "#4cd6ff",
+                        "outline": "#859399",
+                        "surface-bright": "#3a3939",
+                        "primary-container": "#00d1ff",
+                        "inverse-surface": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#6b4700",
+                        "secondary": "#c6c6c7",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-secondary-container": "#b4b5b5",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "on-primary": "#003543",
+                        "surface-tint": "#4cd6ff",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#2f3131",
+                        "on-primary-container": "#00566a",
+                        "tertiary-fixed": "#ffddb1",
+                        "tertiary": "#ffd59c",
+                        "tertiary-fixed-dim": "#ffba49",
+                        "surface-variant": "#353534",
+                        "background": "#131313",
+                        "surface": "#131313",
+                        "tertiary-container": "#feb127",
+                        "surface-dim": "#131313",
+                        "surface-container-highest": "#353534",
+                        "secondary-container": "#454747",
+                        "on-surface-variant": "#bbc9cf",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-primary-fixed-variant": "#004e60",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed": "#b7eaff",
+                        "inverse-primary": "#00677f",
+                        "inverse-on-surface": "#313030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-padding-mobile": "64px",
+                        "unit": "8px",
+                        "section-padding-desktop": "120px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": [
+                            "Sora"
+                        ],
+                        "body-lg": [
+                            "Geist"
+                        ],
+                        "headline-xl": [
+                            "Sora"
+                        ],
+                        "body-md": [
+                            "Geist"
+                        ],
+                        "headline-xl-mobile": [
+                            "Sora"
+                        ],
+                        "label-mono": [
+                            "JetBrains Mono"
+                        ],
+                        "display-lg": [
+                            "Sora"
+                        ]
+                    },
+                    "fontSize": {
+                        "headline-lg": [
+                            "32px",
+                            {
+                                "lineHeight": "40px",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "body-lg": [
+                            "18px",
+                            {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-xl": [
+                            "48px",
+                            {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "body-md": [
+                            "16px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-xl-mobile": [
+                            "32px",
+                            {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "label-mono": [
+                            "12px",
+                            {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "display-lg": [
+                            "72px",
+                            {
+                                "lineHeight": "80px",
+                                "letterSpacing": "-0.04em",
+                                "fontWeight": "700"
+                            }
+                        ]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0A0A0A;
+            color: #e5e2e1;
+        }
+
+        .glass-panel {
+            background: rgba(22, 22, 22, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glow-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 25px 2px rgba(0, 209, 255, 0.25);
+            border-color: rgba(0, 209, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.2);
+            box-shadow: 0 0 20px rgba(0, 209, 255, 0.5);
+        }
+
+        .hero-shader-container {
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        }
+
+        /* 语言切换器下拉样式 */
+        .lang-dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lang-dropdown-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Toast 动画 */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .toast-animate {
+            animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* i18n 文本切换淡入淡出动画 */
+        .i18n-fade {
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .i18n-fading {
+            opacity: 0.2;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border-left-color: #000;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="antialiased min-h-screen flex flex-col font-body-md overflow-x-hidden selection:bg-primary-container selection:text-black">
+
+    <!-- Toast 全局通知容器 -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 pointer-events-none flex flex-col gap-3"></div>
+
+    <!-- Top Navigation -->
+    <header
+        class="bg-surface/80 dark:bg-surface/80 backdrop-blur-[20px] fixed top-0 w-full z-50 border-b border-white/10 shadow-none transition-all duration-300">
+        <div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+            <a class="font-display-lg text-headline-lg tracking-tighter text-on-surface hover:text-white transition-colors duration-200 flex items-center group py-1"
+                href="#">
+                <img alt="WEPOR Official Logo"
+                    class="h-10 md:h-12 w-auto object-contain mix-blend-screen filter drop-shadow-[0_0_12px_rgba(0,209,255,0.4)] group-hover:drop-shadow-[0_0_22px_rgba(0,209,255,0.8)] group-hover:scale-105 transition-all duration-300"
+                    src="images/logo-transparent.png" />
+            </a>
+
+            <nav class="hidden md:flex gap-8 items-center font-body-md text-body-md">
+                <a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300"
+                    data-i18n="nav_story" href="#story">品牌故事</a>
+                <a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300"
+                    data-i18n="nav_glasses" href="#glasses">智能眼镜</a>
+                <a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300"
+                    data-i18n="nav_vr" href="#vr">VR 远景</a>
+                <a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300"
+                    data-i18n="nav_audio" href="#audio">音频生态</a>
+                <a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300"
+                    data-i18n="nav_innovation" href="#innovation">核心技术</a>
+                <a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300"
+                    data-i18n="nav_contact" href="#contact">联系我们</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <!-- 多语言切换下拉框按钮 -->
+                <div class="relative inline-block text-left" id="lang-selector">
+                    <button id="lang-menu-btn" type="button"
+                        class="inline-flex items-center gap-2 bg-surface-container-highest/80 hover:bg-surface-container-high border border-white/10 text-on-surface font-label-mono text-label-mono px-3 py-2 rounded transition-all duration-200">
+                        <span class="material-symbols-outlined text-[18px] text-primary-container">language</span>
+                        <span id="current-lang-text">ZH (中文)</span>
+                        <span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+                    </button>
+                    <!-- 下拉菜单列表 -->
+                    <div id="lang-dropdown"
+                        class="lang-dropdown-menu absolute right-0 mt-2 w-40 glass-panel rounded-lg shadow-2xl border border-white/15 py-1 z-50">
+                        <button onclick="changeLanguage('zh')"
+                            class="w-full text-left px-4 py-2 text-sm text-on-surface hover:bg-primary-container/20 hover:text-primary-container transition-colors flex items-center justify-between font-label-mono">
+                            <span>中文 (ZH)</span>
+                            <span class="text-xs text-primary-container lang-check hidden" id="check-zh">✓</span>
+                        </button>
+                        <button onclick="changeLanguage('en')"
+                            class="w-full text-left px-4 py-2 text-sm text-on-surface hover:bg-primary-container/20 hover:text-primary-container transition-colors flex items-center justify-between font-label-mono">
+                            <span>English (EN)</span>
+                            <span class="text-xs text-primary-container lang-check hidden" id="check-en">✓</span>
+                        </button>
+                        <button onclick="changeLanguage('de')"
+                            class="w-full text-left px-4 py-2 text-sm text-on-surface hover:bg-primary-container/20 hover:text-primary-container transition-colors flex items-center justify-between font-label-mono">
+                            <span>Deutsch (DE)</span>
+                            <span class="text-xs text-primary-container lang-check hidden" id="check-de">✓</span>
+                        </button>
+                        <button onclick="changeLanguage('fr')"
+                            class="w-full text-left px-4 py-2 text-sm text-on-surface hover:bg-primary-container/20 hover:text-primary-container transition-colors flex items-center justify-between font-label-mono">
+                            <span>Français (FR)</span>
+                            <span class="text-xs text-primary-container lang-check hidden" id="check-fr">✓</span>
+                        </button>
+                        <button onclick="changeLanguage('es')"
+                            class="w-full text-left px-4 py-2 text-sm text-on-surface hover:bg-primary-container/20 hover:text-primary-container transition-colors flex items-center justify-between font-label-mono">
+                            <span>Español (ES)</span>
+                            <span class="text-xs text-primary-container lang-check hidden" id="check-es">✓</span>
+                        </button>
+                        <button onclick="changeLanguage('it')"
+                            class="w-full text-left px-4 py-2 text-sm text-on-surface hover:bg-primary-container/20 hover:text-primary-container transition-colors flex items-center justify-between font-label-mono">
+                            <span>Italiano (IT)</span>
+                            <span class="text-xs text-primary-container lang-check hidden" id="check-it">✓</span>
+                        </button>
+                    </div>
+                </div>
+
+                <button onclick="scrollToSection('glasses')"
+                    class="hidden md:flex bg-primary-container text-black font-body-md text-body-md px-6 py-2 rounded font-medium btn-primary transition-all duration-300 scale-102 hover:scale-105"
+                    data-i18n="nav_explore">
+                    开始探索
+                </button>
+                <button id="mobile-menu-toggle" class="md:hidden text-on-surface p-1">
+                    <span class="material-symbols-outlined text-[24px]">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-white/10 px-6 py-4 flex-col gap-4">
+            <a class="text-on-surface hover:text-primary-container py-1" data-i18n="nav_story" href="#story"
+                onclick="toggleMobileMenu()">品牌故事</a>
+            <a class="text-on-surface hover:text-primary-container py-1" data-i18n="nav_glasses" href="#glasses"
+                onclick="toggleMobileMenu()">智能眼镜</a>
+            <a class="text-on-surface hover:text-primary-container py-1" data-i18n="nav_vr" href="#vr"
+                onclick="toggleMobileMenu()">VR 远景</a>
+            <a class="text-on-surface hover:text-primary-container py-1" data-i18n="nav_audio" href="#audio"
+                onclick="toggleMobileMenu()">音频生态</a>
+            <a class="text-on-surface hover:text-primary-container py-1" data-i18n="nav_innovation" href="#innovation"
+                onclick="toggleMobileMenu()">核心技术</a>
+            <a class="text-on-surface hover:text-primary-container py-1" data-i18n="nav_contact" href="#contact"
+                onclick="toggleMobileMenu()">联系我们</a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-24 relative">
+        <!-- Hero Section with Background Shader and Interactive 3D Canvas -->
+        <section class="relative flex items-center justify-center overflow-hidden min-h-[680px]">
+            <!-- Background Shader Effect -->
+            <div class="absolute inset-0 z-0 hero-shader-container opacity-40"></div>
+
+            <!-- 3D Interactive Canvas Centerpiece -->
+            <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-85">
+                <canvas id="hero-canvas" class="w-[800px] h-[800px] max-w-full pointer-events-auto"></canvas>
+            </div>
+
+            <!-- Hero Content -->
+            <div class="relative z-20 max-w-container-max mx-auto px-gutter text-center flex flex-col items-center py-12"
+                data-aos="fade-up" data-aos-duration="1000">
+                <div
+                    class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-primary-container/30 bg-primary-container/5 backdrop-blur-sm">
+                    <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+                    <span class="font-label-mono text-label-mono text-primary-container tracking-widest uppercase"
+                        data-i18n="hero_badge">重磅新品</span>
+                </div>
+
+                <h1
+                    class="font-display-lg text-display-lg md:text-[96px] text-on-surface mb-6 leading-tight tracking-tighter drop-shadow-2xl">
+                    <span data-i18n="hero_title_1">预测未来，</span><br /><span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary-fixed-dim to-surface-variant"
+                        data-i18n="hero_title_2">清晰可见。</span>
+                </h1>
+
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed"
+                    data-i18n="hero_desc">
+                    打破现实与虚拟的边界。WEPOR 新一代增强现实智能设备，在极简设计中承载澎湃算力，重塑您感知世界的维度。
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="scrollToSection('glasses')"
+                        class="bg-primary-container text-black px-8 py-4 rounded font-body-md text-body-md font-semibold btn-primary transition-all duration-300"
+                        data-i18n="hero_btn_explore">
+                        探索 WEPOR Vision
+                    </button>
+                    <button onclick="showVideoModal()"
+                        class="bg-transparent border border-white/20 text-white px-8 py-4 rounded font-body-md text-body-md hover:bg-white/10 hover:border-primary-container/50 transition-all duration-300 flex items-center gap-2 justify-center group">
+                        <span data-i18n="hero_btn_video">观看概念视频</span>
+                        <span
+                            class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">play_arrow</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div
+                class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-60 animate-bounce">
+                <span class="font-label-mono text-label-mono text-on-surface-variant"
+                    data-i18n="hero_scroll">SCROLL</span>
+                <span class="material-symbols-outlined text-primary-container">arrow_downward</span>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="py-section-padding-mobile max-w-container-max mx-auto px-gutter relative z-20 md:py-24"
+            id="story">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="rounded-2xl overflow-hidden aspect-video md:aspect-square border border-white/10 shadow-2xl group"
+                    data-aos="fade-right" data-aos-duration="1000">
+                    <img alt="Neural link interface showing precision engineering"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        src="images/story-neural.jpg" />
+                </div>
+                <div data-aos="fade-left" data-aos-duration="1000">
+                    <h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-6"
+                        data-i18n="story_title">连接科技与人性的桥梁。</h2>
+                    <div class="w-16 h-1 bg-primary-container rounded mb-8"></div>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed"
+                        data-i18n="story_p1">
+                        在 WEPOR，我们设想这样一个未来：数字增强就像呼吸一样自然。我们的哲学根植于将前沿创新与人类直觉无缝融合。
+                    </p>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed"
+                        data-i18n="story_p2">
+                        我们设计的每个电路、构建的每个界面，都是为了赋能您的自然感官，消除您与无界数字世界之间的阻隔。我们不仅制造设备，更是您无限潜能的隐形延伸者。
+                    </p>
+                    <a class="inline-flex items-center gap-2 text-primary-container hover:text-white transition-colors duration-300 font-label-mono text-label-mono uppercase tracking-widest group"
+                        href="#innovation">
+                        <span data-i18n="story_link">探索我们的技术架构</span>
+                        <span
+                            class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Smart Glasses Section -->
+        <section class="py-section-padding-mobile max-w-container-max mx-auto px-gutter relative z-20 md:py-24"
+            id="glasses">
+            <div class="mb-16" data-aos="fade-up">
+                <h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-4"
+                    data-i18n="glasses_badge">超越视觉</h2>
+                <div class="w-16 h-1 bg-primary-container rounded"></div>
+            </div>
+
+            <div class="glass-panel rounded-2xl overflow-hidden flex flex-col md:flex-row group border border-white/10 mb-8"
+                data-aos="fade-up" data-aos-duration="1000">
+                <div class="md:w-1/2 aspect-square md:aspect-auto overflow-hidden">
+                    <img alt="Person wearing sleek smart glasses in a futuristic urban environment"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        src="images/smart-glasses.jpg" />
+                </div>
+                <div class="md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+                    <h3 class="font-headline-lg text-[32px] text-on-surface mb-6" data-i18n="glasses_title">增强现实，重新定义。
+                    </h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed"
+                        data-i18n="glasses_p1">
+                        我们的旗舰智能眼镜重新定义了日常增强现实。采用轻量化碳黑镜框与无缝集成的全息显示屏，呈现数字与物理世界的完美融合。自适应镜片可随环境动态调节，确保在任何光线条件下都清晰无比。
+                    </p>
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed" data-i18n="glasses_p2">
+                        由自主研发的 W1 Bionic 芯片驱动，带来澎湃的实时神经渲染算力，同时保持优雅极简的外观，全天佩戴依然舒适自如。
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-8 rounded-xl border-t border-l border-white/10 glow-hover hover:-translate-y-2 transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-12 h-12 rounded bg-surface-container-highest border border-white/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary-container"
+                            style="font-variation-settings: 'FILL' 1;">visibility</span>
+                    </div>
+                    <h4 class="font-headline-lg text-[20px] text-on-surface mb-3" data-i18n="glasses_feat1_title">Micro
+                        OLED 显示屏</h4>
+                    <p class="font-body-md text-body-md text-on-surface-variant text-sm" data-i18n="glasses_feat1_desc">
+                        超高密度双 Micro-OLED 面板提供视网膜级清晰图像，精准映射您的真实环境。</p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-xl border-t border-l border-white/10 glow-hover hover:-translate-y-2 transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-12 h-12 rounded bg-surface-container-highest border border-white/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary-container"
+                            style="font-variation-settings: 'FILL' 1;">memory</span>
+                    </div>
+                    <h4 class="font-headline-lg text-[20px] text-on-surface mb-3" data-i18n="glasses_feat2_title">W1
+                        Bionic 芯片</h4>
+                    <p class="font-body-md text-body-md text-on-surface-variant text-sm" data-i18n="glasses_feat2_desc">
+                        专为空间计算打造的定制芯片架构，确保复杂神经渲染以极低功耗高效运行。</p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-xl border-t border-l border-white/10 glow-hover hover:-translate-y-2 transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-12 h-12 rounded bg-surface-container-highest border border-white/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary-container"
+                            style="font-variation-settings: 'FILL' 1;">battery_charging_full</span>
+                    </div>
+                    <h4 class="font-headline-lg text-[20px] text-on-surface mb-3" data-i18n="glasses_feat3_title">18
+                        小时超长续航</h4>
+                    <p class="font-body-md text-body-md text-on-surface-variant text-sm" data-i18n="glasses_feat3_desc">
+                        高密度固态电池无缝集成于镜腿中，在不增加体积的前提下提供全天候强劲续航。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VR Vision Section -->
+        <section class="py-section-padding-mobile max-w-container-max mx-auto px-gutter relative z-20 md:py-24" id="vr">
+            <div class="mb-16" data-aos="fade-up">
+                <h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-4"
+                    data-i18n="vr_badge">VR 空间平台</h2>
+                <div class="w-16 h-1 bg-primary-container rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                <div class="md:col-span-12 glass-panel rounded-xl p-8 md:p-12 flex flex-col justify-between group glow-hover transition-all duration-500 min-h-[500px] relative overflow-hidden"
+                    data-aos="zoom-in" data-aos-duration="900">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent z-0"></div>
+                    <div class="relative z-10 md:w-1/2">
+                        <span
+                            class="font-label-mono text-label-mono text-primary-container border border-primary-container/30 bg-primary-container/10 px-3 py-1 rounded inline-block mb-4 uppercase"
+                            data-i18n="vr_flagship">核心旗舰</span>
+                        <h3 class="font-headline-lg text-[40px] text-on-surface mb-4" data-i18n="vr_title">WEPOR VR
+                            Vision</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-4 leading-relaxed"
+                            data-i18n="vr_p1">搭载突破性的双 8K Micro-OLED 显示屏，WEPOR VR Vision
+                            提供前所未有的视觉保真度。每一个像素都经过精密工程打造，融化您与元宇宙之间的隔阂，内部发光组件尽显强悍科技力量。</p>
+                        <p class="font-body-md text-body-md text-on-surface-variant max-w-md leading-relaxed"
+                            data-i18n="vr_p2">我们的超低延迟空间跟踪系统以亚毫米级精度映射您的物理动作，提供沉浸式的无缝虚拟环境通道，绝无眩晕感。</p>
+                    </div>
+                    <div
+                        class="relative z-10 self-end mt-8 md:mt-0 w-full max-w-lg md:absolute md:right-12 md:bottom-12 md:w-1/2">
+                        <div class="w-full aspect-[4/3] bg-cover bg-center rounded-lg shadow-2xl transform group-hover:scale-105 transition-transform duration-700 border border-white/10"
+                            style="background-image: url('images/vr-vision.jpg')"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio Gear Section -->
+        <section class="py-section-padding-mobile max-w-container-max mx-auto px-gutter relative z-20 md:py-24"
+            id="audio">
+            <div class="mb-16" data-aos="fade-up">
+                <h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-4"
+                    data-i18n="audio_badge">音频生态系统</h2>
+                <div class="w-16 h-1 bg-primary-container rounded"></div>
+            </div>
+
+            <div class="glass-panel rounded-xl overflow-hidden group glow-hover transition-all duration-500 border border-white/10"
+                data-aos="fade-up" data-aos-duration="1000">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-8 md:p-12 flex flex-col justify-center relative z-10">
+                        <h3 class="font-headline-lg text-[32px] text-on-surface mb-6" data-i18n="audio_title">沉浸式空间声场
+                        </h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed"
+                            data-i18n="audio_p1">
+                            体验听觉感知的革命。包含高端智能音响与精准无线耳机的 WEPOR 音频生态，带来真正的 360 度空间音频。声音在三维空间中动态流动，与您的环境和头部动作无缝贴合。
+                        </p>
+                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed"
+                            data-i18n="audio_p2">
+                            为无损音质倾力打磨，高级主动降噪技术营造出纯粹的安宁氛围，让您专注深思或彻底沉浸于丰富无瑕的音效体验中，辅以直观的青蓝色 LED 指示灯。
+                        </p>
+                    </div>
+                    <div class="aspect-square md:aspect-auto h-full min-h-[400px] overflow-hidden relative">
+                        <div class="absolute inset-0 w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
+                            style="background-image: url('images/audio-gear.jpg')"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Innovation Core Section -->
+        <section
+            class="py-section-padding-mobile border-t border-white/5 bg-surface-container-lowest relative z-20 md:py-24"
+            id="innovation">
+            <div class="max-w-container-max mx-auto px-gutter">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-4"
+                        data-i18n="inno_title">自主研发 极质性能</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant" data-i18n="inno_desc">
+                        我们绝不向现有技术妥协。每一个核心组件均由自主研发，旨在打造极致性能与优雅体验。</p>
+                </div>
+
+                <div class="glass-panel rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 group glow-hover transition-all duration-500 min-h-[400px] mb-16"
+                    data-aos="fade-up" data-aos-duration="1000">
+                    <div class="flex-1">
+                        <span
+                            class="font-label-mono text-label-mono text-primary-container border border-primary-container/30 bg-primary-container/10 px-3 py-1 rounded inline-block mb-4 uppercase"
+                            data-i18n="inno_card_tag">即将来袭</span>
+                        <h3 class="font-headline-lg text-headline-lg text-on-surface mb-4" data-i18n="inno_card_title">
+                            神经网络接口</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed"
+                            data-i18n="inno_card_desc">下一代人机交互范式。利用非侵入式脑机接口技术，实现意念控制与环境感知的完美融合。</p>
+                        <button onclick="showModalInfo()"
+                            class="bg-transparent border border-white/20 text-white px-6 py-2 rounded font-body-md text-body-md hover:bg-white/10 hover:border-primary-container/50 transition-all duration-300"
+                            data-i18n="inno_card_btn">
+                            了解更多
+                        </button>
+                    </div>
+                    <div
+                        class="w-full md:w-1/2 aspect-video bg-black rounded-lg border border-white/10 overflow-hidden relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-primary-container/20 to-transparent mix-blend-overlay">
+                        </div>
+                        <div class="absolute inset-0 opacity-30"
+                            style="background-image: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255,255,255,0.05) 1px, rgba(255,255,255,0.05) 2px); background-size: 100% 4px;">
+                        </div>
+                        <div class="flex items-center justify-center h-full relative">
+                            <span
+                                class="material-symbols-outlined text-[72px] text-primary-container animate-pulse">hub</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-section-padding-mobile border-t border-white/5 relative z-20 md:py-24" id="contact">
+            <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div data-aos="fade-right" data-aos-duration="900">
+                    <h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-6"
+                        data-i18n="contact_title">隐形交互界面的缔造者。</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed"
+                        data-i18n="contact_desc">我们相信科技应该放大人类潜能，而非制造屏障。我们的使命是将数字能力无缝无感地融入您的感官。</p>
+                    <div
+                        class="flex gap-4 items-start bg-surface-container-low/50 p-6 rounded-xl border border-white/5">
+                        <span class="material-symbols-outlined text-primary-container text-3xl mt-1">location_on</span>
+                        <div>
+                            <h4 class="font-headline-lg text-lg text-on-surface mb-1" data-i18n="contact_hq_title">全球总部
+                            </h4>
+                            <p class="text-on-surface-variant font-body-md" data-i18n="contact_hq_addr">新东京创新园区,
+                                104-0061</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 md:p-10 rounded-xl border border-white/10 glow-hover" data-aos="fade-left"
+                    data-aos-duration="900">
+                    <h3 class="font-headline-lg text-[24px] text-on-surface mb-6" data-i18n="contact_form_title">与我们取得联系
+                    </h3>
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="flex flex-col gap-5">
+                        <div>
+                            <label class="block font-label-mono text-label-mono text-on-surface-variant mb-2"
+                                data-i18n="label_name">姓名</label>
+                            <input id="form-name" required
+                                class="w-full bg-surface-container-highest border border-white/10 rounded p-3.5 text-white focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all"
+                                data-i18n-placeholder="placeholder_name" placeholder="请输入您的姓名" type="text" />
+                        </div>
+                        <div>
+                            <label class="block font-label-mono text-label-mono text-on-surface-variant mb-2"
+                                data-i18n="label_email">电子邮箱</label>
+                            <input id="form-email" required
+                                class="w-full bg-surface-container-highest border border-white/10 rounded p-3.5 text-white focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all"
+                                data-i18n-placeholder="placeholder_email" placeholder="请输入您的邮箱地址" type="email" />
+                        </div>
+                        <div>
+                            <label class="block font-label-mono text-label-mono text-on-surface-variant mb-2"
+                                data-i18n="label_message">留言内容</label>
+                            <textarea id="form-message" required
+                                class="w-full bg-surface-container-highest border border-white/10 rounded p-3.5 text-white focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all min-h-[120px]"
+                                data-i18n-placeholder="placeholder_message" placeholder="我们能为您提供什么帮助？"></textarea>
+                        </div>
+                        <button id="form-submit-btn"
+                            class="bg-primary-container text-black font-semibold py-3.5 rounded mt-2 hover:brightness-110 btn-primary transition-all duration-300 flex items-center justify-center gap-2"
+                            type="submit">
+                            <span id="btn-text" data-i18n="btn_send">发送消息</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Concept Video Modal -->
+    <div id="video-modal"
+        class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 transition-opacity">
+        <div class="relative w-full max-w-4xl glass-panel rounded-2xl p-4 overflow-hidden border border-white/20">
+            <button onclick="closeVideoModal()"
+                class="absolute top-4 right-4 text-white hover:text-primary-container z-10 p-2">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+            <div
+                class="aspect-video w-full bg-black rounded-lg flex flex-col items-center justify-center relative overflow-hidden">
+                <div
+                    class="absolute inset-0 bg-gradient-to-tr from-primary-container/20 via-transparent to-purple-500/20 animate-pulse">
+                </div>
+                <span
+                    class="material-symbols-outlined text-7xl text-primary-container mb-4 animate-bounce">play_circle</span>
+                <h3 class="text-xl font-headline-lg text-white mb-2">WEPOR Concept Film 2026</h3>
+                <p class="text-sm text-on-surface-variant">Playing ultra-high resolution interactive teaser...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+        class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full border-t border-white/5 relative z-20">
+        <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter py-section-padding-desktop max-w-container-max mx-auto">
+            <div class="md:col-span-1">
+                <div class="mb-4">
+                    <img alt="WEPOR Official Logo"
+                        class="h-12 md:h-14 w-auto object-contain mix-blend-screen filter drop-shadow-[0_0_12px_rgba(0,209,255,0.4)] hover:drop-shadow-[0_0_22px_rgba(0,209,255,0.8)] hover:scale-105 transition-all duration-300"
+                        src="images/logo-transparent.png" />
+                </div>
+                <p class="font-label-mono text-label-mono text-on-surface-variant mt-4" data-i18n="footer_copy">
+                    © 2026 WEPOR. Precision Engineered Innovation.
+                </p>
+            </div>
+            <div class="md:col-span-3 flex flex-wrap gap-8 justify-start md:justify-end">
+                <nav class="flex flex-col md:flex-row gap-6 font-label-mono text-label-mono text-on-surface-variant">
+                    <a class="hover:text-primary transition-colors duration-200" data-i18n="footer_privacy"
+                        href="#">Privacy Policy</a>
+                    <a class="hover:text-primary transition-colors duration-200" data-i18n="footer_terms" href="#">Terms
+                        of Service</a>
+                    <a class="hover:text-primary transition-colors duration-200" data-i18n="footer_contact"
+                        href="#contact">Contact</a>
+                    <a class="hover:text-primary transition-colors duration-200" data-i18n="footer_newsletter"
+                        href="#">Newsletter</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // 初始化 AOS 滚动动画
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 80
+            });
+            initHeroCanvas();
+            initLanguage();
+        });
+
+        // 多语言字典配置 (ZH, EN, DE, FR, ES, IT)
+        const translations = {
+            zh: {
+                nav_story: "品牌故事",
+                nav_glasses: "智能眼镜",
+                nav_vr: "VR 远景",
+                nav_audio: "音频生态",
+                nav_innovation: "核心技术",
+                nav_contact: "联系我们",
+                nav_explore: "开始探索",
+                hero_badge: "重磅新品",
+                hero_title_1: "预测未来，",
+                hero_title_2: "清晰可见。",
+                hero_desc: "打破现实与虚拟的边界。WEPOR 新一代增强现实智能设备，在极简设计中承载澎湃算力，重塑您感知世界的维度。",
+                hero_btn_explore: "探索 WEPOR Vision",
+                hero_btn_video: "观看概念视频",
+                hero_scroll: "向下滚动",
+                story_title: "连接科技与人性的桥梁。",
+                story_p1: "在 WEPOR，我们设想这样一个未来：数字增强就像呼吸一样自然。我们的哲学根植于将前沿创新与人类直觉无缝融合。",
+                story_p2: "我们设计的每个电路、构建的每个界面，都是为了赋能您的自然感官，消除您与无界数字世界之间的阻隔。我们不仅制造设备，更是您无限潜能的隐形延伸者。",
+                story_link: "探索我们的技术架构",
+                glasses_badge: "超越视觉",
+                glasses_title: "增强现实，重新定义。",
+                glasses_p1: "我们的旗舰智能眼镜重新定义了日常增强现实。采用轻量化碳黑镜框与无缝集成的全息显示屏，呈现数字与物理世界的完美融合。自适应镜片可随环境动态调节，确保在任何光线条件下都清晰无比。",
+                glasses_p2: "由自主研发的 W1 Bionic 芯片驱动，带来澎湃的实时神经渲染算力，同时保持优雅极简的外观，全天佩戴依然舒适自如。",
+                glasses_feat1_title: "Micro OLED 显示屏",
+                glasses_feat1_desc: "超高密度双 Micro-OLED 面板提供视网膜级清晰图像，精准映射您的真实环境。",
+                glasses_feat2_title: "W1 Bionic 芯片",
+                glasses_feat2_desc: "专为空间计算打造的定制芯片架构，确保复杂神经渲染以极低功耗高效运行。",
+                glasses_feat3_title: "18 小时超长续航",
+                glasses_feat3_desc: "高密度固态电池无缝集成于镜腿中，在不增加体积的前提下提供全天候强劲续航。",
+                vr_badge: "VR 空间平台",
+                vr_flagship: "核心旗舰",
+                vr_title: "WEPOR VR Vision",
+                vr_p1: "搭载突破性的双 8K Micro-OLED 显示屏，WEPOR VR Vision 提供前所未有的视觉保真度。每一个像素都经过精密工程打造，融化您与元宇宙之间的隔阂，内部发光组件尽显强悍科技力量。",
+                vr_p2: "我们的超低延迟空间跟踪系统以亚毫米级精度映射您的物理动作，提供沉浸式的无缝虚拟环境通道，绝无眩晕感。",
+                audio_badge: "音频生态系统",
+                audio_title: "沉浸式空间声场",
+                audio_p1: "体验听觉感知的革命。包含高端智能音响与精准无线耳机的 WEPOR 音频生态，带来真正的 360 度空间音频。声音在三维空间中动态流动，与您的环境和头部动作无缝贴合。",
+                audio_p2: "为无损音质倾力打磨，高级主动降噪技术营造出纯粹的安宁氛围，让您专注深思或彻底沉浸于丰富无瑕的音效体验中，辅以直观的青蓝色 LED 指示灯。",
+                inno_title: "自主研发 极质性能",
+                inno_desc: "我们绝不向现有技术妥协。每一个核心组件均由自主研发，旨在打造极致性能与优雅体验。",
+                inno_card_tag: "即将来袭",
+                inno_card_title: "神经网络接口",
+                inno_card_desc: "下一代人机交互范式。利用非侵入式脑机接口技术，实现意念控制与环境感知的完美融合。",
+                inno_card_btn: "了解更多",
+                contact_title: "隐形交互界面的缔造者。",
+                contact_desc: "我们相信科技应该放大人类潜能，而非制造屏障。我们的使命是将数字能力无缝无感地融入您的感官。",
+                contact_hq_title: "全球总部",
+                contact_hq_addr: "深圳双子塔,3202",
+                contact_form_title: "与我们取得联系",
+                label_name: "姓名",
+                placeholder_name: "请输入您的姓名",
+                label_email: "电子邮箱",
+                placeholder_email: "请输入您的邮箱地址",
+                label_message: "留言内容",
+                placeholder_message: "我们能为您提供什么帮助？",
+                btn_send: "发送消息",
+                btn_sending: "发送中...",
+                toast_success: "消息发送成功！我们的专家团队将尽快与您联系。",
+                toast_error: "请填写所有必填字段并输入有效的邮箱地址。",
+                footer_copy: "© 2026 WEPOR. 精密工程与极致创新。",
+                footer_privacy: "隐私政策",
+                footer_terms: "服务条款",
+                footer_contact: "联系方式",
+                footer_newsletter: "订阅资讯"
+            },
+            en: {
+                nav_story: "Our Story",
+                nav_glasses: "Smart Glasses",
+                nav_vr: "VR Vision",
+                nav_audio: "Audio Gear",
+                nav_innovation: "Innovation",
+                nav_contact: "Contact",
+                nav_explore: "Start Exploring",
+                hero_badge: "New Release",
+                hero_title_1: "Predict the Future,",
+                hero_title_2: "Clearly Visible.",
+                hero_desc: "Shattering the boundaries between reality and virtuality. WEPOR's all-new generation of augmented reality smart devices carries surging computing power in a minimalist design.",
+                hero_btn_explore: "Explore WEPOR Vision",
+                hero_btn_video: "Watch Concept Video",
+                hero_scroll: "SCROLL",
+                story_title: "Bridging the Gap Between Technology and Humanity.",
+                story_p1: "At WEPOR, we envision a future where digital enhancement feels as natural as drawing a breath. Our philosophy is rooted in the seamless integration of cutting-edge innovation.",
+                story_p2: "Every circuit we design and every interface we build is crafted to empower your natural senses, eliminating the friction between you and the boundless digital realm.",
+                story_link: "Discover Our Architecture",
+                glasses_badge: "Beyond Vision",
+                glasses_title: "Augmented Reality, Redefined.",
+                glasses_p1: "Our flagship Smart Glasses redefine everyday augmentation. Featuring a lightweight carbon black frame and holographic displays, they provide an uncompromised blend of physical and digital worlds.",
+                glasses_p2: "Powered by the proprietary W1 Bionic chip, these glasses deliver surging computing power for real-time neural rendering while maintaining an elegant profile.",
+                glasses_feat1_title: "Micro OLED Displays",
+                glasses_feat1_desc: "Ultra-high density dual micro-OLED panels deliver retina-resolution imagery mapping perfectly to your real world.",
+                glasses_feat2_title: "W1 Bionic Chip",
+                glasses_feat2_desc: "Custom silicon architecture optimized for spatial computing, ensuring complex neural rendering runs with ultra-low power.",
+                glasses_feat3_title: "18h Battery Life",
+                glasses_feat3_desc: "High-density solid-state batteries integrated seamlessly into the temples, providing all-day performance.",
+                vr_badge: "VR Platform",
+                vr_flagship: "Core Flagship",
+                vr_title: "WEPOR VR Vision",
+                vr_p1: "Equipped with breakthrough dual 8K Micro-OLED displays, the WEPOR VR Vision offers unparalleled visual fidelity, revealing internal glowing components that showcase technological power.",
+                vr_p2: "Our ultra-low latency spatial tracking system maps your physical movements with sub-millimeter precision, providing an immersive gateway without motion disruption.",
+                audio_badge: "Audio Ecosystem",
+                audio_title: "Immersive Spatial Soundscape",
+                audio_p1: "Experience a revolution in auditory perception. The WEPOR Audio Ecosystem delivers true 360-degree spatial audio flowing dynamically around you.",
+                audio_p2: "Engineered for lossless fidelity, our active noise cancellation technology creates pure tranquility, allowing you to focus deeply or lose yourself in rich audio.",
+                inno_title: "Proprietary Hardware Architecture",
+                inno_desc: "We do not compromise with existing technology. Every core component is developed in-house to deliver extreme performance.",
+                inno_card_tag: "COMING SOON",
+                inno_card_title: "Neural Link Interface",
+                inno_card_desc: "The next generation of human-computer interaction paradigms using non-invasive brain-computer interface technology.",
+                inno_card_btn: "Learn More",
+                contact_title: "Architects of the invisible interface.",
+                contact_desc: "We believe technology should amplify human potential without creating barriers. Our mission is to seamlessly integrate digital capabilities.",
+                contact_hq_title: "Global Headquarters",
+                contact_hq_addr: "Shenzhen Twin Towers 3202",
+                contact_form_title: "Get in Touch",
+                label_name: "NAME",
+                placeholder_name: "Enter your name",
+                label_email: "EMAIL",
+                placeholder_email: "Enter your email",
+                label_message: "MESSAGE",
+                placeholder_message: "How can we help?",
+                btn_send: "Send Message",
+                btn_sending: "Sending...",
+                toast_success: "Message sent successfully! Our team will contact you shortly.",
+                toast_error: "Please fill in all required fields with a valid email address.",
+                footer_copy: "© 2026 WEPOR. Precision Engineered Innovation.",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                footer_contact: "Contact",
+                footer_newsletter: "Newsletter"
+            },
+            de: {
+                nav_story: "Unsere Geschichte",
+                nav_glasses: "Smart Brillen",
+                nav_vr: "VR-Vision",
+                nav_audio: "Audio-System",
+                nav_innovation: "Innovationen",
+                nav_contact: "Kontakt",
+                nav_explore: "Jetzt Entdecken",
+                hero_badge: "Neuerscheinung",
+                hero_title_1: "Die Zukunft vorhersagen,",
+                hero_title_2: "Klar sichtbar.",
+                hero_desc: "Die Grenzen zwischen Realität und Virtualität durchbrechen. Die neue Generation der WEPOR Augmented-Reality-Geräte vereint Höchstleistung mit minimalistischem Design.",
+                hero_btn_explore: "WEPOR Vision Erkunden",
+                hero_btn_video: "Konzeptvideo Ansehen",
+                hero_scroll: "SCROLLEN",
+                story_title: "Die Brücke zwischen Technologie und Menschheit.",
+                story_p1: "Bei WEPOR stellen wir uns eine Zukunft vor, in der digitale Erweiterung so natürlich ist wie Atmen. Unsere Philosophie basiert auf der nahtlosen Verschmelzung von Innovation.",
+                story_p2: "Jeder Schaltkreis und jede Schnittstelle ist darauf ausgelegt, Ihre natürlichen Sinne zu verstärken und Barrieren zur digitalen Welt abzubauen.",
+                story_link: "Unsere Architektur Entdecken",
+                glasses_badge: "Mehr Als Sehen",
+                glasses_title: "Augmented Reality, Neu Definiert.",
+                glasses_p1: "Unsere Flaggschiff-Smart-Brille definiert alltägliche Erweiterung neu. Mit einem leichten Karbonrahmen und integrierten holografischen Displays.",
+                glasses_p2: "Angetrieben vom W1 Bionic Chip liefert sie immense Rechenleistung für Echtzeit-Renderings bei einem eleganten Design.",
+                glasses_feat1_title: "Micro-OLED-Displays",
+                glasses_feat1_desc: "Ultra-hochauflösende Micro-OLED-Panels liefern gestochen scharfe Bilder für Ihre Umgebung.",
+                glasses_feat2_title: "W1 Bionic Chip",
+                glasses_feat2_desc: "Maßgeschneiderte Chip-Architektur für Spatial Computing mit extrem geringem Energieverbrauch.",
+                glasses_feat3_title: "18 Std. Akkulaufzeit",
+                glasses_feat3_desc: "Hochdichte Festkörperbatterien in den Bügeln für ganztägige Leistung ohne zusätzliches Gewicht.",
+                vr_badge: "VR-Plattform",
+                vr_flagship: "Kern-Flaggschiff",
+                vr_title: "WEPOR VR Vision",
+                vr_p1: "Mit bahnbrechenden dualen 8K Micro-OLED-Displays bietet die WEPOR VR Vision unvergleichliche visuelle Treue.",
+                vr_p2: "Unser Spatial-Tracking-System erfasst Ihre Bewegungen mit Sub-Millimeter-Präzision für nahtlose virtuelle Welten.",
+                audio_badge: "Audio-Ökosystem",
+                audio_title: "Immersiver Raumklang",
+                audio_p1: "Erleben Sie eine Revolution der akustischen Wahrnehmung mit echtem 360-Grad-Raumklang.",
+                audio_p2: "Verlustfreie Klangtreue und fortschrittliche aktive Geräuschunterdrückung für ungestörten Hörgenuss.",
+                inno_title: "Eigenentwickelte Architektur",
+                inno_desc: "Wir machen keine Kompromisse. Jede Kernkomponente wird im eigenen Haus entwickelt.",
+                inno_card_tag: "DEMNÄCHST",
+                inno_card_title: "Neuronale Schnittstelle",
+                inno_card_desc: "Die nächste Generation der Mensch-Maschine-Interaktion mittels nicht-invasiver BCI-Technologie.",
+                inno_card_btn: "Mehr Erfahren",
+                contact_title: "Architekten der unsichtbaren Schnittstelle.",
+                contact_desc: "Technologie sollte menschliches Potenzial erweitern, ohne Barrieren zu schaffen.",
+                contact_hq_title: "Weltzentrale",
+                contact_hq_addr: "Shenzhen Twin Towers 3202",
+                contact_form_title: "Kontakt Aufnehmen",
+                label_name: "NAME",
+                placeholder_name: "Ihr Name",
+                label_email: "E-MAIL",
+                placeholder_email: "Ihre E-Mail-Adresse",
+                label_message: "NACHRICHT",
+                placeholder_message: "Wie können wir Ihnen helfen?",
+                btn_send: "Nachricht Senden",
+                btn_sending: "Wird gesendet...",
+                toast_success: "Nachricht erfolgreich gesendet! Unser Team wird sich in Kürze bei Ihnen melden.",
+                toast_error: "Bitte füllen Sie alle Pflichtfelder mit einer gültigen E-Mail-Adresse aus.",
+                footer_copy: "© 2026 WEPOR. Präzision und Innovation.",
+                footer_privacy: "Datenschutz",
+                footer_terms: "Nutzungsbedingungen",
+                footer_contact: "Kontakt",
+                footer_newsletter: "Newsletter"
+            },
+            fr: {
+                nav_story: "Notre Histoire",
+                nav_glasses: "Lunettes Intelligentes",
+                nav_vr: "Vision VR",
+                nav_audio: "Écosystème Audio",
+                nav_innovation: "Innovation",
+                nav_contact: "Contact",
+                nav_explore: "Explorer",
+                hero_badge: "Nouveauté",
+                hero_title_1: "Prédire le Futur,",
+                hero_title_2: "Clairement Visible.",
+                hero_desc: "Repousser les limites entre réalité et virtualité. La nouvelle génération d'appareils WEPOR allie puissance et design minimaliste.",
+                hero_btn_explore: "Explorer WEPOR Vision",
+                hero_btn_video: "Voir la Vidéo Concept",
+                hero_scroll: "DÉFILER",
+                story_title: "Faire le pont entre technologie et humanité.",
+                story_p1: "Chez WEPOR, nous imaginons un avenir où l'amélioration numérique est aussi naturelle que la respiration.",
+                story_p2: "Chaque circuit et chaque interface est conçu pour amplifier vos sens naturels sans friction.",
+                story_link: "Découvrir Notre Architecture",
+                glasses_badge: "Au-delà de la Vue",
+                glasses_title: "La Réalité Augmentée, Redéfinie.",
+                glasses_p1: "Nos lunettes intelligentes phares redéfinissent l'augmentation quotidienne avec un cadre en carbone et des écrans holographiques.",
+                glasses_p2: "Propulsées par la puce W1 Bionic, elles offrent une puissance de calcul impressionnante pour un rendu neural en temps réel.",
+                glasses_feat1_title: "Écrans Micro OLED",
+                glasses_feat1_desc: "Panneaux micro-OLED double ultra-haute densité pour des images d'une netteté exceptionnelle.",
+                glasses_feat2_title: "Puce W1 Bionic",
+                glasses_feat2_desc: "Architecture silicium personnalisée pour le calcul spatial à très basse consommation.",
+                glasses_feat3_title: "18h d'Autonomie",
+                glasses_feat3_desc: "Batteries solides haute densité intégrées dans les branches pour une journée complète d'utilisation.",
+                vr_badge: "Plateforme VR",
+                vr_flagship: "Produit Phare",
+                vr_title: "WEPOR VR Vision",
+                vr_p1: "Équipé de deux écrans Micro-OLED 8K révolutionnaires, le WEPOR VR Vision offre une fidélité visuelle inégalée.",
+                vr_p2: "Notre système de suivi spatial ultra-basse latence cartographie vos mouvements avec une précision millimétrique.",
+                audio_badge: "Écosystème Audio",
+                audio_title: "Paysage Sonore Spatial Immersif",
+                audio_p1: "Vivez une révolution sonore avec un véritable son spatialisé à 360 degrés.",
+                audio_p2: "Fidélité sonore haute résolution et réduction de bruit active avancée pour une immersion totale.",
+                inno_title: "Architecture Propriétaire",
+                inno_desc: "Nous ne faisons aucun compromis. Chaque composant clé est développé en interne.",
+                inno_card_tag: "BIENTÔT DISPONIBLE",
+                inno_card_title: "Interface Neuronale Directe",
+                inno_card_desc: "La nouvelle génération d'interaction homme-machine basée sur la technologie d'interface cerveau-machine.",
+                inno_card_btn: "En Savoir Plus",
+                contact_title: "Architectes de l'interface invisible.",
+                contact_desc: "Nous croyons que la technologie doit amplifier le potentiel humain sans créer de barrières.",
+                contact_hq_title: "Siège Mondial",
+                contact_hq_addr: "Tours jumelles de Shenzhen 3202",
+                contact_form_title: "Contactez-nous",
+                label_name: "NOM",
+                placeholder_name: "Entrez votre nom",
+                label_email: "E-MAIL",
+                placeholder_email: "Entrez votre adresse e-mail",
+                label_message: "MESSAGE",
+                placeholder_message: "Comment pouvons-nous vous aider ?",
+                btn_send: "Envoyer le Message",
+                btn_sending: "Envoi en cours...",
+                toast_success: "Message envoyé avec succès ! Notre équipe vous contactera sous peu.",
+                toast_error: "Veuillez remplir tous les champs obligatoires avec un e-mail valide.",
+                footer_copy: "© 2026 WEPOR. Innovation et Ingénierie de Précision.",
+                footer_privacy: "Politique de Confidentialité",
+                footer_terms: "Conditions d'Utilisation",
+                footer_contact: "Contact",
+                footer_newsletter: "Newsletter"
+            },
+            es: {
+                nav_story: "Nuestra Historia",
+                nav_glasses: "Gafas Inteligentes",
+                nav_vr: "Visión VR",
+                nav_audio: "Ecosistema de Audio",
+                nav_innovation: "Innovación",
+                nav_contact: "Contacto",
+                nav_explore: "Explorar",
+                hero_badge: "Nuevo Lanzamiento",
+                hero_title_1: "Predecir el Futuro,",
+                hero_title_2: "Claramente Visible.",
+                hero_desc: "Rompiendo las fronteras entre la realidad y la virtualidad. La nueva generación de dispositivos inteligentes WEPOR combina rendimiento y diseño minimalista.",
+                hero_btn_explore: "Explorar WEPOR Vision",
+                hero_btn_video: "Ver Video Concepto",
+                hero_scroll: "DESPLAZAR",
+                story_title: "Uniendo la tecnología y la humanidad.",
+                story_p1: "En WEPOR imaginamos un futuro donde la mejora digital sea tan natural como respirar.",
+                story_p2: "Cada circuito e interfaz está diseñado para potenciar tus sentidos naturales sin fricción.",
+                story_link: "Descubrir Nuestra Arquitectura",
+                glasses_badge: "Más Allá de la Visión",
+                glasses_title: "Realidad Aumentada, Redefinida.",
+                glasses_p1: "Nuestras gafas inteligentes redefinen la interacción diaria con montura ligera de carbono y pantallas holográficas integradas.",
+                glasses_p2: "Impulsadas por el chip W1 Bionic, ofrecen una gran potencia de cálculo para renderizado neuronal en tiempo real.",
+                glasses_feat1_title: "Pantallas Micro OLED",
+                glasses_feat1_desc: "Paneles micro-OLED dobles de ultra alta densidad para imágenes nítidas de nivel retina.",
+                glasses_feat2_title: "Chip W1 Bionic",
+                glasses_feat2_desc: "Arquitectura de silicio personalizada para computación espacial con consumo ultra bajo.",
+                glasses_feat3_title: "18h de Batería",
+                glasses_feat3_desc: "Baterías de estado sólido de alta densidad integradas para un rendimiento de todo el día.",
+                vr_badge: "Plataforma VR",
+                vr_flagship: "Insignia Principal",
+                vr_title: "WEPOR VR Vision",
+                vr_p1: "Con dos revolucionarias pantallas Micro-OLED 8K, WEPOR VR Vision ofrece una fidelidad visual sin precedentes.",
+                vr_p2: "Nuestro sistema de seguimiento espacial de ultra baja latencia mapea tus movimientos con precisión milimétrica.",
+                audio_badge: "Ecosistema de Audio",
+                audio_title: "Paisaje Sonoro Espacial Inmersivo",
+                audio_p1: "Experimenta una revolución auditiva con auténtico sonido espacial de 360 grados.",
+                audio_p2: "Fidelidad de audio sin pérdidas y cancelación activa de ruido avanzada para una tranquilidad absoluta.",
+                inno_title: "Arquitectura Propietaria",
+                inno_desc: "No aceptamos compromisos. Cada componente principal se desarrolla internamente.",
+                inno_card_tag: "PRÓXIMAMENTE",
+                inno_card_title: "Interfaz Neural Directa",
+                inno_card_desc: "La próxima generación de interacción humano-computadora mediante tecnología BCI no invasiva.",
+                inno_card_btn: "Saber Más",
+                contact_title: "Arquitectos de la interfaz invisible.",
+                contact_desc: "Creemos que la tecnología debe amplificar el potencial humano sin crear barreras.",
+                contact_hq_title: "Sede Global",
+                contact_hq_addr: "Torres gemelas de Shenzhen 3202",
+                contact_form_title: "Ponte en Contacto",
+                label_name: "NOMBRE",
+                placeholder_name: "Ingresa tu nombre",
+                label_email: "CORREO ELECTRÓNICO",
+                placeholder_email: "Ingresa tu correo electrónico",
+                label_message: "MENSAJE",
+                placeholder_message: "¿Cómo podemos ayudarte?",
+                btn_send: "Enviar Mensaje",
+                btn_sending: "Enviando...",
+                toast_success: "¡Mensaje enviado con éxito! Nuestro equipo se pondrá en contacto pronto.",
+                toast_error: "Por favor, completa todos los campos obligatorios con un correo válido.",
+                footer_copy: "© 2026 WEPOR. Innovación e Ingeniería de Precisión.",
+                footer_privacy: "Política de Privacidad",
+                footer_terms: "Términos de Servicio",
+                footer_contact: "Contacto",
+                footer_newsletter: "Boletín Informativo"
+            },
+            it: {
+                nav_story: "La Nostra Storia",
+                nav_glasses: "Occhiali Intelligenti",
+                nav_vr: "Visione VR",
+                nav_audio: "Ecosistema Audio",
+                nav_innovation: "Innovazione",
+                nav_contact: "Contatti",
+                nav_explore: "Esplora Ora",
+                hero_badge: "Nuova Uscita",
+                hero_title_1: "Prevedere il Futuro,",
+                hero_title_2: "Chiaramente Visibile.",
+                hero_desc: "Rompere i confini tra realtà e virtualità. La nuova generazione di dispositivi WEPOR unisce potenza e design minimalista.",
+                hero_btn_explore: "Esplora WEPOR Vision",
+                hero_btn_video: "Guarda Video Concept",
+                hero_scroll: "SCORRI",
+                story_title: "Unire tecnologia e umanità.",
+                story_p1: "In WEPOR immaginiamo un futuro in cui il potenziamento digitale sia naturale come respirare.",
+                story_p2: "Ogni circuito e interfaccia è progettato per amplificare i tuoi sensi naturali senza attrito.",
+                story_link: "Scopri La Nostra Architettura",
+                glasses_badge: "Oltre la Vista",
+                glasses_title: "Realtà Aumentata, Ridefinita.",
+                glasses_p1: "I nostri occhiali intelligenti ridefiniscono l'esperienza quotidiana con montatura in carbonio e display olografici integrati.",
+                glasses_p2: "Alimentati dal chip W1 Bionic, offrono una potenza di calcolo elevata per il rendering neurale in tempo reale.",
+                glasses_feat1_title: "Display Micro OLED",
+                glasses_feat1_desc: "Pannelli micro-OLED doppi ad altissima densità per immagini nitide a risoluzione retina.",
+                glasses_feat2_title: "Chip W1 Bionic",
+                glasses_feat2_desc: "Architettura in silicio personalizzata per il calcolo spaziale a bassissimo consumo.",
+                glasses_feat3_title: "18h di Autonomia",
+                glasses_feat3_desc: "Batterie allo stato solido ad alta densità integrate nelle aste per un'autonomia di un'intera giornata.",
+                vr_badge: "Piattaforma VR",
+                vr_flagship: "Prodotto Ammiraglia",
+                vr_title: "WEPOR VR Vision",
+                vr_p1: "Dotato di rivoluzionari doppi display Micro-OLED 8K, WEPOR VR Vision offre una fedeltà visiva senza precedenti.",
+                vr_p2: "Il nostro sistema di tracciamento spaziale a bassissima latenza mappa i tuoi movimenti con precisione millimetrica.",
+                audio_badge: "Ecosistema Audio",
+                audio_title: "Paesaggio Sonoro Spaziale Immersivo",
+                audio_p1: "Vivi una rivoluzione nell'ascolto con il vero audio spaziale a 360 gradi.",
+                audio_p2: "Fedeltà audio senza perdite e cancellazione attiva del rumore per un'immersione assoluta.",
+                inno_title: "Architettura Proprietaria",
+                inno_desc: "Non accettiamo compromessi. Ogni componente principale è sviluppato internamente.",
+                inno_card_tag: "IN ARRIVO",
+                inno_card_title: "Interfaccia Neurale Diretta",
+                inno_card_desc: "La prossima generazione di interazione uomo-macchina basata su tecnologia BCI non invasiva.",
+                inno_card_btn: "Scopri di Più",
+                contact_title: "Architetti dell'interfaccia invisibile.",
+                contact_desc: "Crediamo che la tecnologia debba amplificare il potenziale umano senza creare barriere.",
+                contact_hq_title: "Sede Centrale",
+                contact_hq_addr: "Torres gemelas de Shenzhen 3202",
+                contact_form_title: "Mettiti in Contatto",
+                label_name: "NOME",
+                placeholder_name: "Inserisci il tuo nome",
+                label_email: "E-MAIL",
+                placeholder_email: "Inserisci la tua e-mail",
+                label_message: "MESSAGGIO",
+                placeholder_message: "Come possiamo aiutarti?",
+                btn_send: "Invia Messaggio",
+                btn_sending: "Invio in corso...",
+                toast_success: "Messaggio inviato con successo! Il nostro team ti contatterà a breve.",
+                toast_error: "Compila tutti i campi obbligatori con un indirizzo e-mail valido.",
+                footer_copy: "© 2026 WEPOR. Innovazione e Ingegneria di Precisione.",
+                footer_privacy: "Informativa sulla Privacy",
+                footer_terms: "Termini di Servizio",
+                footer_contact: "Contatti",
+                footer_newsletter: "Newsletter"
+            }
+        };
+
+        let currentLang = 'zh';
+
+        // 语言名字映射
+        const langNames = {
+            zh: 'ZH (中文)',
+            en: 'EN (English)',
+            de: 'DE (Deutsch)',
+            fr: 'FR (Français)',
+            es: 'ES (Español)',
+            it: 'IT (Italiano)'
+        };
+
+        // 初始化语言
+        function initLanguage() {
+            const savedLang = localStorage.getItem('wepor_lang');
+            if (savedLang && translations[savedLang]) {
+                currentLang = savedLang;
+            }
+            applyLanguage(currentLang, false);
+
+            // 下拉框展开与收起
+            const btn = document.getElementById('lang-menu-btn');
+            const dropdown = document.getElementById('lang-dropdown');
+
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!document.getElementById('lang-selector').contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+
+            // 移动端菜单切换
+            const mobileBtn = document.getElementById('mobile-menu-toggle');
+            mobileBtn.addEventListener('click', toggleMobileMenu);
+        }
+
+        // 切换移动端菜单
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+
+        // 更改当前语言
+        function changeLanguage(lang) {
+            if (!translations[lang]) return;
+            currentLang = lang;
+            localStorage.setItem('wepor_lang', lang);
+            document.getElementById('lang-dropdown').classList.remove('active');
+            applyLanguage(lang, true);
+        }
+
+        // 应用语言更新 DOM
+        function applyLanguage(lang, animate = true) {
+            const langText = document.getElementById('current-lang-text');
+            if (langText) langText.innerText = langNames[lang];
+
+            // 更新 Checkmark 勾选指示
+            document.querySelectorAll('.lang-check').forEach(el => el.classList.add('hidden'));
+            const currentCheck = document.getElementById(`check-${lang}`);
+            if (currentCheck) currentCheck.classList.remove('hidden');
+
+            const dict = translations[lang];
+            if (!dict) return;
+
+            const elements = document.querySelectorAll('[data-i18n]');
+            const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+
+            if (animate) {
+                elements.forEach(el => el.classList.add('i18n-fading'));
+                placeholders.forEach(el => el.classList.add('i18n-fading'));
+
+                setTimeout(() => {
+                    elements.forEach(el => {
+                        const key = el.getAttribute('data-i18n');
+                        if (dict[key]) el.innerText = dict[key];
+                        el.classList.remove('i18n-fading');
+                    });
+
+                    placeholders.forEach(el => {
+                        const key = el.getAttribute('data-i18n-placeholder');
+                        if (dict[key]) el.setAttribute('placeholder', dict[key]);
+                        el.classList.remove('i18n-fading');
+                    });
+                }, 150);
+            } else {
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (dict[key]) el.innerText = dict[key];
+                });
+                placeholders.forEach(el => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    if (dict[key]) el.setAttribute('placeholder', dict[key]);
+                });
+            }
+        }
+
+        // 简易滚动导航函数
+        function scrollToSection(id) {
+            const target = document.getElementById(id);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // 视频 Modal
+        function showVideoModal() {
+            const modal = document.getElementById('video-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function showModalInfo() {
+            const dict = translations[currentLang];
+            showToast(dict.inno_card_title + ": " + dict.inno_card_desc, "info");
+        }
+
+        // Toast 提示框全功能支持
+        function showToast(message, type = "success") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast-animate glass-panel p-4 rounded-lg shadow-2xl border flex items-center gap-3 pointer-events-auto max-w-md ${type === 'success' ? 'border-primary-container/40 text-white' :
+                    type === 'error' ? 'border-red-500/40 text-red-200' : 'border-white/20 text-white'
+                }`;
+
+            const icon = type === 'success' ? 'check_circle' : type === 'error' ? 'error' : 'info';
+            const iconColor = type === 'success' ? 'text-primary-container' : type === 'error' ? 'text-red-400' : 'text-cyan-400';
+
+            toast.innerHTML = `
+        <span class="material-symbols-outlined ${iconColor} text-2xl">${icon}</span>
+        <div class="text-sm font-body-md leading-snug">${message}</div>
+        <button onclick="this.parentElement.remove()" class="ml-auto text-on-surface-variant hover:text-white p-1">
+            <span class="material-symbols-outlined text-lg">close</span>
+        </button>
+    `;
+
+            container.appendChild(toast);
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateY(10px)';
+                    toast.style.transition = 'all 0.3s ease';
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 4500);
+        }
+
+        // 表单提交交互实现
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('form-name').value.trim();
+            const email = document.getElementById('form-email').value.trim();
+            const message = document.getElementById('form-message').value.trim();
+            const submitBtn = document.getElementById('form-submit-btn');
+            const btnText = document.getElementById('btn-text');
+
+            const dict = translations[currentLang];
+
+            // 邮箱规则校验
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!name || !email || !message || !emailRegex.test(email)) {
+                showToast(dict.toast_error, "error");
+                return;
+            }
+
+            // 模拟提交 Loading 状态
+            submitBtn.disabled = true;
+            btnText.innerText = dict.btn_sending;
+
+            // 添加 Spinner 节点
+            const spinner = document.createElement('div');
+            spinner.className = 'spinner border-black';
+            spinner.id = 'form-spinner';
+            submitBtn.prepend(spinner);
+
+            setTimeout(() => {
+                // 成功反馈
+                showToast(dict.toast_success, "success");
+
+                // 重置表单状态
+                document.getElementById('contact-form').reset();
+                submitBtn.disabled = false;
+                btnText.innerText = dict.btn_send;
+                const activeSpinner = document.getElementById('form-spinner');
+                if (activeSpinner) activeSpinner.remove();
+            }, 1400);
+        }
+
+        // 3D 浮动 Particle & Glow Sphere Canvas 交互动画
+        function initHeroCanvas() {
+            const canvas = document.getElementById('hero-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            let width = canvas.width = 800;
+            let height = canvas.height = 800;
+
+            let mouseX = width / 2;
+            let mouseY = height / 2;
+            let targetMouseX = mouseX;
+            let targetMouseY = mouseY;
+
+            window.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
+                    targetMouseX = e.clientX - rect.left;
+                    targetMouseY = e.clientY - rect.top;
+                }
+            });
+
+            // 粒子产生
+            const numParticles = 65;
+            const particles = [];
+
+            for (let i = 0; i < numParticles; i++) {
+                particles.push({
+                    x: (Math.random() - 0.5) * 500,
+                    y: (Math.random() - 0.5) * 500,
+                    z: (Math.random() - 0.5) * 500,
+                    ox: 0, oy: 0, oz: 0,
+                    radius: Math.random() * 2 + 1,
+                    color: Math.random() > 0.3 ? '#00D1FF' : '#ffffff'
+                });
+            }
+
+            let angleX = 0;
+            let angleY = 0;
+
+            function render() {
+                ctx.clearRect(0, 0, width, height);
+
+                mouseX += (targetMouseX - mouseX) * 0.05;
+                mouseY += (targetMouseY - mouseY) * 0.05;
+
+                angleY += 0.005 + (mouseX - width / 2) * 0.00002;
+                angleX += 0.003 + (mouseY - height / 2) * 0.00002;
+
+                const cx = width / 2;
+                const cy = height / 2;
+
+                // 绘制中心发光极光球
+                const glowGradient = ctx.createRadialGradient(cx, cy, 50, cx, cy, 280);
+                glowGradient.addColorStop(0, 'rgba(0, 209, 255, 0.25)');
+                glowGradient.addColorStop(0.5, 'rgba(0, 209, 255, 0.08)');
+                glowGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+                ctx.fillStyle = glowGradient;
+                ctx.beginPath();
+                ctx.arc(cx, cy, 300, 0, Math.PI * 2);
+                ctx.fill();
+
+                // 绘制外围科技旋转环
+                ctx.save();
+                ctx.translate(cx, cy);
+                ctx.rotate(angleY * 0.5);
+                ctx.strokeStyle = 'rgba(0, 209, 255, 0.15)';
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([15, 10, 5, 10]);
+                ctx.beginPath();
+                ctx.ellipse(0, 0, 240, 110, Math.PI / 6, 0, Math.PI * 2);
+                ctx.stroke();
+
+                ctx.rotate(-angleY * 0.8);
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+                ctx.beginPath();
+                ctx.ellipse(0, 0, 260, 130, -Math.PI / 4, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.restore();
+
+                // 绘制三维浮动粒子连线网络
+                const projected = [];
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+
+                    // 旋转变换
+                    let cosX = Math.cos(angleX), sinX = Math.sin(angleX);
+                    let cosY = Math.cos(angleY), sinY = Math.sin(angleY);
+
+                    let y1 = p.y * cosX - p.z * sinX;
+                    let z1 = p.y * sinX + p.z * cosX;
+
+                    let x2 = p.x * cosY + z1 * sinY;
+                    let z2 = -p.x * sinY + z1 * cosY;
+
+                    // 透视投影
+                    let fov = 400;
+                    let scale = fov / (fov + z2 + 300);
+                    let px = x2 * scale + cx;
+                    let py = y1 * scale + cy;
+
+                    projected.push({ x: px, y: py, scale: scale, color: p.color, radius: p.radius });
+                }
+
+                // 绘制粒子间互联线条
+                for (let i = 0; i < projected.length; i++) {
+                    for (let j = i + 1; j < projected.length; j++) {
+                        let p1 = projected[i];
+                        let p2 = projected[j];
+                        let dx = p1.x - p2.x;
+                        let dy = p1.y - p2.y;
+                        let dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 85) {
+                            ctx.strokeStyle = `rgba(0, 209, 255, ${(1 - dist / 85) * 0.25 * p1.scale})`;
+                            ctx.lineWidth = 0.8;
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                // 绘制粒子
+                for (let i = 0; i < projected.length; i++) {
+                    let p = projected[i];
+                    ctx.fillStyle = p.color;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = '#00D1FF';
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, Math.max(1, p.radius * p.scale), 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+
+                requestAnimationFrame(render);
+            }
+
+            render();
+        }
+    </script>
+</body>
+
+</html>
